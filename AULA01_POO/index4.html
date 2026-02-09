@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classe com construtor</title>
+    <script>
+        class Animal {
+            constructor(nome){
+                this.nome = nome;
+            }
+            emtirSom(){
+                console.log(`${this.nome} faz um som`);
+            }
+        }
+
+        const cachorro = new Animal("Rex");
+        cachorro.emitirSom();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

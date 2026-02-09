@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atv4</title>
+    <script>
+        class Carro {
+            constructor(cor, modelo, ano){
+                this.ano = ano;
+                this.modelo = modelo;
+                this.cor = cor;
+            }
+            ligar(){
+                console.log(`${this.modelo} ligado!`);
+            }
+        }
+        const carros = [
+            new Carro ("Preto", "Porsche", 2022),
+            new Carro ("Chumbo", "Honda Civic", 2025),
+            new Carro ("Vermelho", "Camaro Exorcist", 2023)
+        ];
+
+        console.log(carros);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,46 +1,118 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
     <title>Sistema Bancário - VULNERÁVEL</title>
     <style>
-        body{
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 30px;
-            background-color: #f4f4f9;
-            display: flex;
-            justify-content: center;
-        }
+      body {
+        font-family: "Segoe UI", sans-serif;
+        padding: 30px;
+        background-color: #f4f4f9;
+        display: flex;
+        justify-content: center;
+      }
 
-        .card{
-            
-            background-color: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-        }
+      .card {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+      }
 
-        h1{
-            color: #d9534f;
-            margin-top: 0;
-        }
+      h1 {
+        color: #d9534f;
+        margin-top: 0;
+      }
 
-        .saldo-box{
-            background-color: #fff5f5;
-            border: 2px dashed  #d9534f;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 10px;
-        }
+      .saldo-box {
+        background: #fff5f5;
+        border: 2px dashed #d9534f;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 10px;
+      }
 
-        
+      .valor {
+        font-size: 32px;
+        font-weight: bold;
+        color: #333;
+        display: block;
+      }
+
+      .btn-hack {
+        background: #d9534f;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        width: 100%;
+        transition: 0.3s;
+      }
+
+      .btn-hack:hover {
+        background: #c9302c;
+      }
+
+      .log {
+        font-size: 0.85em;
+        color: #666;
+        margin-top: 15px;
+        font-style: italic;
+      }
     </style>
-</head>
-<body>
-    
-</body>
+  </head>
+
+  <body>
+    <div class="card">
+      <h1>Banco Inseguro</h1>
+      <p>Cliente: <strong id="nomeTela">João Silva</strong></p>
+
+      <div class="saldo-box">
+        <span>Saldo Atual:</span>
+        <span class="valor" id="saldoTela">R$ 100.00</span>
+      </div>
+
+      <button class="btn-hack" onclick="sincronizar()">
+        Sincronizar com o Objeto
+      </button>
+
+      <p class="log">Altere o saldo no console e clique em Sincronizar.</p>
+    </div>
+
+    <script>
+      // A CLASSE SEM PROTEÇÃO (Igual a aula 17)
+      class ContaBancaria {
+        constructor(cliente, saldoInicial) {
+          this.cliente = cliente;
+          this.saldo = saldoInicial; // Público: porta aberta
+        }
+      }
+
+      // Criamos o objeto na memória
+      const contaJoao = new ContaBancaria("João Silva", 100.0);
+
+      // FUNÇÃO QUE ATUALIZA O DOM (A TELA)
+      function sincronizar() {
+        // Pegamos o elemento da tela
+        const elementoSaldo = document.getElementById("saldoTela");
+
+        // Atualizamos o texto da tela com o valor que estiver DENTRO do objeto
+        elementoSaldo.innerText = "R$ " + contaJoao.saldo;
+
+        console.log(
+          "DOM atualizado! O valor no objeto agora é: " + contaJoao.saldo,
+        );
+      }
+
+      // Instruções iniciais no console
+      console.log("--- TESTE DE VULNERABILIDADE ---");
+      console.log("1. Digite: contaJoao.saldo = 'HACKEADO'");
+      console.log("2. Clique no botão vermelho na tela.");
+    </script>
+  </body>
 </html>

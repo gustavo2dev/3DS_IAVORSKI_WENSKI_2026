@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Dado Processado - Esse é diferenciado</title>
+    <script>
+        class PerfilDigital {
+        #nomeCompleto = '';
+
+        constructor(nomeCompleto) {
+            this.nomeCompleto = nomeCompleto;
+        }
+
+        set nomeCompleto(nome) {
+            if (typeof nome === 'string') {
+                this.#nomeCompleto = nome.toUpperCase();
+            } else {
+                console.log("Não é um nome!");
+            }
+        }
+
+        get nomeCompleto() {
+            return this.#nomeCompleto.split(' ')[0];
+        }
+    }
+
+    const nom = new PerfilDigital("Lucas");
+
+    //testes de saída
+    console.log(nom.nomeCompleto);
+
+    nom.nomeCompleto = "João Silva";
+    console.log(nom.nomeCompleto);
+
+    nom.nomeCompleto = 123;
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

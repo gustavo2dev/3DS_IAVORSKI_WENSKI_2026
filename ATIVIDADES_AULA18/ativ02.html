@@ -1,42 +1,38 @@
-<!doctype html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ativ 02</title>
-  </head>
-  <script>
-    class consoleDeEstoque {
-      #quantidade = 0;
+<!DOCTYPE html>
+<html lang="pr-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Filtro de Valores - Estoque</title>
+    <script>
+        class ControleDeEstoque{
+            #quantidade = 0;
 
-      constructor(quantidade) {
-        this.#quantidade = quantidade;
-      }
+            constructor(estoque){
+                this.#quantidade = estoque;
+            }
 
-      get quantidade() {
-        return this.#quantidade;
-      }
+            get quantidade(){
+                return this.#quantidade;
+            }
 
-      set quantidade(novaQuantidade) {
-        if (
-          typeof novaQuantidade !== "number" ||
-          Number.isNaN(novaQuantidade) ||
-          novaQuantidade < 0
-        ) {
-          console.error("Erro: digite um número não-negativo.");
-          return;
+            set quantidade(novaQuantidade){
+                if(typeof novaQuantidade === 'number' && novaQuantidade >= 0){
+                    this.#quantidade = novaQuantidade;
+                    console.log(`O estoque é ${novaQuantidade}`);
+                }else{
+                    console.error("O estoque não pode ser negativo!");
+                }
+            }
         }
-        this.#quantidade = novaQuantidade;
-        console.log(
-          `${novaQuantidade} - A quantidade no estoque foi alterada com sucesso!`,
-        );
-      }
-    }
-    const estoque = new consoleDeEstoque(50);
 
-    console.log("O valor inicial é:", estoque.quantidade);
-    estoque.quantidade = -50; // mostra erro e não altera
-    console.log("O valor final é", estoque.quantidade);
-  </script>
-  <body></body>
+        const estoque1 = new ControleDeEstoque(50);
+        console.log(`Valor em estoque: ${estoque1.quantidade}`);
+        console.log("estoque1.quantidade = 30;  Deve exibir que o estoque é 30")
+        console.log("estoque1.quantidade = -5;   deve exibir: Erro O estoque não pode ser negativo!")
+    </script>
+</head>
+<body>
+    
+</body>
 </html>

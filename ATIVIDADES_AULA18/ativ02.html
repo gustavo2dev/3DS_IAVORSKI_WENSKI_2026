@@ -3,7 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>ativ 02</title>
   </head>
+  <script>
+    class consoleDeEstoque {
+      #quantidade = 0;
+
+      constructor(quantidade) {
+        this.#quantidade = quantidade;
+      }
+
+      get quantidade() {
+        return this.#quantidade;
+      }
+
+      set quantidade(novaQuantidade) {
+        if (
+          typeof novaQuantidade !== "number" ||
+          Number.isNaN(novaQuantidade) ||
+          novaQuantidade < 0
+        ) {
+          console.error("Erro: digite um número não-negativo.");
+          return;
+        }
+        this.#quantidade = novaQuantidade;
+        console.log(
+          `${novaQuantidade} - A quantidade no estoque foi alterada com sucesso!`,
+        );
+      }
+    }
+    const estoque = new consoleDeEstoque(50);
+
+    console.log("O valor inicial é:", estoque.quantidade);
+    estoque.quantidade = -50; // mostra erro e não altera
+    console.log("O valor final é", estoque.quantidade);
+  </script>
   <body></body>
 </html>

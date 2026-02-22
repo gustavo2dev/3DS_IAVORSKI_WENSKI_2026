@@ -1,109 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A tranca básica</title>
-    <style>
-      :root {
-        font-family:
-          Inter,
-          system-ui,
-          Segoe UI,
-          Roboto,
-          Helvetica,
-          Arial;
-        color: #222;
-      }
-      body {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        margin: 0;
-        background: #f5f7fb;
-      }
-      .card {
-        width: 90%;
-        max-width: 640px;
-        background: #fff;
-        padding: 24px;
-        border-radius: 12px;
-        box-shadow: 0 6px 18px rgba(20, 30, 60, 0.08);
-      }
-      h1 {
-        margin: 0 0 8px;
-        font-size: 20px;
-      }
-      p {
-        margin: 0 0 12px;
-        color: #444;
-      }
-      pre {
-        background: #0b1220;
-        color: #e6eef8;
-        padding: 12px;
-        border-radius: 6px;
-        overflow: auto;
-        font-size: 13px;
-      }
-      .hint {
-        margin-top: 12px;
-        font-size: 13px;
-        color: #666;
-      }
-    </style>
-  </head>
-  <script>
-    class Termometro {
-      #temperatura = 0;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1: A Tranca Básica - Termometro</title>
+    <script>
+        class Termometro{
+            #temperatura = 0;
+                
+            constructor(temperatura){
+                this.#temperatura = temperatura;    
+            }
 
-      constructor(temperatura) {
-        this.#temperatura = temperatura;
-      }
+            get temperatura(){
+                return this.#temperatura;
+            }
 
-      get temperatura() {
-        return this.#temperatura;
-      }
-
-      set temperatura(valor) {
-        if (typeof valor === "number" && !Number.isNaN(valor)) {
-          this.#temperatura = valor;
-          console.log(
-            `A temperatura foi alterada com SUCESSO: ${this.#temperatura}`,
-          );
-        } else {
-          console.error("Erro: somente formato numérico");
+            set temperatura(novaTemperatura){
+                if(typeof novaTemperatura === "number"){
+                    this.#temperatura = novaTemperatura;
+                    console.log(`A temperatura é ${novaTemperatura}`);
+                } else{
+                    console.error("tentativa de alteração bloqueada.");
+                }
+            }
         }
-      }
-    }
 
-    const t = new Termometro(25);
-    console.log("Temperatura inicial:", t.temperatura);
-  </script>
-  <body>
-    <main class="card" role="main">
-      <h1>Testador: Classe Termometro</h1>
-      <p>
-        Esta página contém a classe Termometro (não modificada). Abra o console
-        do navegador para testar a tranca (setter que só aceita números).
-      </p>
-
-      <pre>
-        
-// Exemplo 1 no console
-t.temperatura          // → 25
-t.temperatura = "abc"  // tentativa: deve ser ignorada
-
-// Exemplo 2 no console
-t.temperatura          // → 25
-t.temperatura = 30;    // → 30  (novo número)</pre
-      >
-
-      <p class="hint">
-        Dica: cole as linhas no Console (F12) do navegador. A classe usa
-        propriedade privada #temperatura, então apenas o getter expõe o valor.
-      </p>
-    </main>
-  </body>
+        const temperatura_1 = new Termometro(50);
+        console.log("Temperatura inicial", temperatura_1.temperatura);
+        console.log("Tente usar temperatura_1.temperatura = ",""," ;");
+        console.log(temperatura_1.temperatura = "string kkkkkk");
+    </script>
+</head>
+<body>
+    
+</body>
 </html>

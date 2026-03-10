@@ -7,7 +7,7 @@ const server = http.createServer((req, res) => {
   res.setHeader("content-type", "text/html");
 
   //preparar o conteúdo html
-  fs.readFile("./html/pg1.html", (err, data) => {
+  fs.readFile("./html/pg2.html", (err, data) => {
     if (err) {
       console.log("Erro ao carregar a página !!!!");
       res.write("Sinto muito não conseguimos carregar a página!!");

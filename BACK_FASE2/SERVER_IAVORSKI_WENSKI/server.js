@@ -54,5 +54,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(port, host, () => {
-  console.log("O servidor está no AR!!!!!");
+  console.log("O servidor tá no AR!!!!!");
 });

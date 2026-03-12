@@ -21,17 +21,17 @@ const server = http.createServer((req, res) => {
       break;
 
     case "/sobre":
-      html_page = "about.html";
+      html_page = "sobre.html";
       res.statusCode = 200;
       break;
 
     case "/servicos":
-      html_page = "services.html";
+      html_page = "servicos.html";
       res.statusCode = 200;
       break;
 
     case "/contato":
-      html_page = "contact.html";
+      html_page = "contato.html";
       statusCode = 200;
       break;
 

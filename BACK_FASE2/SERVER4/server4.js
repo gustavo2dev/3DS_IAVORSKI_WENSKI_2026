@@ -1,6 +1,6 @@
 const http = require("http");
 const fs = require("fs");
-const { error } = require("console");
+
 let port = 3000;
 let host = "localHost";
 
@@ -13,21 +13,26 @@ const server = http.createServer((req, res) => {
 
   switch (req.url) {
     case "/":
-      html_page = "home.html";
-      res.statusCode = 200;
+      res.setHeader("location", "/");
+      res.statusCode = 301;
+      res.end();
       break;
+
     case "/home":
       html_page = "home.html";
       res.statusCode = 200;
       break;
+
     case "/sobre":
       html_page = "about.html";
       res.statusCode = 200;
       break;
+
     case "/servicos":
       html_page = "services.html";
       statusCode = 200;
       break;
+
     default:
       html_page = "404.html";
       res.statusCode = 404;

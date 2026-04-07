@@ -3,18 +3,19 @@ const server = express();
 
 server.listen(3000);
 
-//MIDDLEWARE
-server.use((req, res, next) => {
-  console.log("Teste de acesso prévio");
-  next();
-});
-
-server.use((req, res, next) => {
-  req.requestTime = Date.now();
-  next();
-});
-
 server.get("/", (req, res) => {
-  res.send("<h1> Teste de Entrada 2</h1>");
-  console.log(req.requestTime);
+  res.sendFile("./VIEWS/home.html", { root: __dirname });
+});
+
+server.get("/iavorski", (req, res) => {
+  res.sendFile("./VIEWS/iavorski.html", { root: __dirname });
+});
+
+server.get("/wenski", (req, res) => {
+  res.sendFile("./VIEWS/wenski.html", { root: __dirname });
+});
+
+server.use((req, res) => {
+  res.sendFile("./VIEWS/404.html", { root: __dirname });
+  res.status(404);
 });

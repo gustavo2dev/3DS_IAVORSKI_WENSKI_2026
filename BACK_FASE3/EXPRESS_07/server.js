@@ -2,39 +2,25 @@ const express = require("express");
 const app = express();
 
 app.listen(3000, () => {
-  console.log("Servidor no ar !!!!");
+  console.log("Servidor no ar!!!!");
 });
 
-const clientes = [
-  { id: 1, nome: "Adamastor", fone: "111", email: "ada@email" },
-  { id: 2, nome: "Bernadete", fone: "222", email: "ber@email" },
-  { id: 3, nome: "Clementina", fone: "333", email: "cle@email" },
-  { id: 4, nome: "Deusdeti", fone: "444", email: "deu@email" },
-  { id: 5, nome: "Emerganda", fone: "555", email: "Emer@email" },
-  { id: 6, nome: "itiacoisa", fone: "666", email: "iti@email" },
-];
-
-//rotas
 app.get("/", (req, res) => {
-  res.send("Seja bem vindo a nossa API de Clientes");
+  res.send("Teste com parâmetros!!!");
 });
 
-//rota que apresenta o total de clientes
+app.get("/distancia/:pontoA.:pontoB", (req, res) => {
+  const pontoA = req.params.pontoA;
+  const pontoB = req.params.pontoB;
 
-app.get("/total_clientes", (req, res) => {
-  res.send("Total de cliente: " + clientes.length);
+  const distancia = pontoB - pontoA;
+  res.send(`A distância entre ${pontoA} e ${pontoB} é ${distancia}`);
 });
 
-//rotas para apresentar dados de um cliente especifico
+app.get("/produto/:num1-:num2", (req, res) => {
+  const num1 = req.params.num1;
+  const num2 = req.params.num2;
+  const produto = num1 * num2;
 
-app.get("/clientes/:id", (req, res) => {
-  const cliente = clientes.find((c) => c.id === parseInt(req, params.id));
-
-  //não acha cliente
-  if (!cliente) {
-    res.status(404).send("Cliente não encontrado!!!");
-  }
-  res.send(
-    `O cliente é: ${cliente.nome}, o telefone: ${cliente.fone}, email: ${cliente.email}`,
-  );
+  res.send(`O produto de ${num1} e de ${num2} resulta em ${produto}`);
 });

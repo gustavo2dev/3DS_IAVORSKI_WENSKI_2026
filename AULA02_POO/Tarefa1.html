@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefa1</title>
+    <script>
+        class Termometro {
+            #temperatura = 0;
+            constructor(temperaturaAtual){
+                this.temperatura = temperaturaAtual
+            }
+            get temperatura(){
+                return this.#temperatura;
+            }
+            set temperatura(novaTemperatura){
+                if(typeof novaTemperatura !== "number"){
+                    console.warn('Valor bnão numerico, ignorado: ', novaTemperatura);
+                    return;
+                }
+                this.#temperatura = novaTemperatura
+
+                console.log(`Esta fazento ${novaTemperatura} graus em sua região`);
+
+                
+            }
+        }
+
+        const Parana = new Termometro(22);
+        Parana.temperatura = 'trinta';
+        Parana.temperatura = 30;
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

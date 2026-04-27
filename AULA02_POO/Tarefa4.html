@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefa2</title>
+    <script>
+        class PerfilDigital {
+            #nomeCompleto = " ";
+
+            constructor(nome) {
+                // inicializa o estoque
+                this.#nomeCompleto = nome;
+            }
+
+            get nomeCompleto() {
+                return this.#nomeCompleto;
+            }
+
+            set nomeCompleto (nome1) {
+                if (typeof nome1 !== "sting") {
+                    console.error(`O valor deve ser um texto`);
+                }
+                if (nome1 === nome1.toUpperCase()){
+                    this.#nomeCompleto = nome1;
+                    console.log(`O seu nome é ${nome1}, e ele está em letras maiusculas;`)
+                }
+                else{
+                    console.error("Nome não esta em letras maiusculas")
+                }
+            }
+        }
+
+        const verificar = new PerfilDigital ();
+        estoque.quantidade = "OLÁ MUNDO";   // Console: Valor inválido inserido.
+        estoque.quantidade = "ola mundo";   // Console: Sua loja possui 30 produtos.
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testes</title>
+    <script>
+        class Aluno {
+            constructor(nome, idade, tamanhoDaPica){ //O constructor vai mostrar o que sera construido como atributos do seu objeto, e cada um tem uma "ordem" primeiro, segundo e terceiro
+                this.nome = nome, //Aqui o this significa esse, e o nome seria o "nome" da "variavel" e o nome depois do igual, é o atributo. Ele esta sendo escrito primeiro, pois la no parenteses ele tambem era o primeiro, então eles devem ser embos os "primeiros"
+                this.idade = idade, 
+                this.tamanhoDaPica = tamanhoDaPica;
+            }
+            identidade(){
+                console.log(`${this.nome} Ola!`);
+            }
+        }
+        let aluno1 = new Aluno('Roberto', 34, "15cm");
+        let aluno2 = new Aluno('Pedrão', 25, "50cm");
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

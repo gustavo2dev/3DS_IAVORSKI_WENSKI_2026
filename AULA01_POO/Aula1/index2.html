@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classe e Objeto</title>
+    <script>
+        class Carro {
+            constructor(cor,modelo,ano){
+                this.ano = ano;
+                this.modelo = modelo,
+                this.cor = cor;
+            }
+            ligar(){
+                console.log(`${this.modelo} ligado!`);
+            }
+        }
+        const fusca = new Carro("azul","fusca", 1970);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

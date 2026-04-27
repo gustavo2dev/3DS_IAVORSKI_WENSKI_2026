@@ -1,12 +1,13 @@
-//módulos e requires
+// módulos e reqires
+const os = require('os');
+// os = operational sistem
 
-const os = require("os");
+// console.log(os.version());
+// console.log(os.machine());
+// console.log(os.release());
+// console.log(os.cpus()[0].model);
 
-//console.log(os.version());
-//console.log(os.machine());
-//console.log(os.release());
-//console.log(os.cpus()[0].model);
-
-const fs = require("fs");
+const fs = require('fs');
+// fs = file sistem
 
 console.log(fs);

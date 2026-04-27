@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefa2</title>
+    <script>
+        class Usuario {
+            #email = " ";
+            #senha = 1234;
+
+            constructor(emailNew, senhaNew) {
+                // inicializa o estoque
+                this.#email = emailNew;
+                this.#senha = senhaNew;
+            }
+
+            get email() {
+                return this.#email;
+            }
+
+            set senha (palpite) {
+                if (typeof palpite === "number" && palpite == 1234) {
+                    this.#senha = palpite;
+                    console.log(`Senha correta, Parabens`);
+                    return true;
+                } else {
+                    console.error("Senha incorreta...");
+                    return false;
+                }
+            }
+        }
+
+        const tentativa = new Usuario (1234);
+        estoque.quantidade = 1234;   // Console: Valor inválido inserido.
+        estoque.quantidade = 4444;   // Console: Sua loja possui 30 produtos.
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

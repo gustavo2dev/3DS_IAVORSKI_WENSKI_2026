@@ -24,13 +24,13 @@
         }
 
         h1 {
-            color: #00d81d;
+            color: #d9534f;
             margin-top: 0;
         }
 
         .saldo-box {
             background: #fff5f5;
-            border: 2px dashed #008f24;
+            border: 2px dashed #d9534f;
             padding: 20px;
             margin: 20px 0;
             border-radius: 10px;
@@ -44,7 +44,7 @@
         }
 
         .btn-hack {
-            background: #06bd2d;
+            background: #d9534f;
             color: white;
             border: none;
             padding: 12px 20px;
@@ -71,7 +71,7 @@
 <body>
 
     <div class="card">
-        <h1>Banco Seguro</h1>
+        <h1>Banco Inseguro</h1>
         <p>Cliente: <strong id="nomeTela">João Silva</strong></p>
 
         <div class="saldo-box">
@@ -85,35 +85,30 @@
     </div>
 
     <script>
-        // A CLASSE COM PROTEÇÃO
+        // A CLASSE SEM PROTEÇÃO (Igual a aula 17)
         class ContaBancaria {
-            // 1. O '#' (A TRANCA): Propriedade privada que ninguém acessa de fora
-            #saldo =0;
-
+            // 1. O '#' ( A TRANCA )> Propriedade privada, nunguem acessa de fora.
+            #saldo = 0;
             constructor(cliente, saldoInicial) {
                 this.cliente = cliente;
-                this.#saldo = saldoInicial; // Público: porta fechada
+                this.#saldo = saldoInicial; // Privavdo: porta aberta
             }
-
-            // 2. O 'get' (O VISOR): Permite ler o saldo de forma segura e formatada
+            // GEETER - inserir o get (VISOR): Permite ver o saldo de forma segura
             get saldo(){
-                return this.saldo;
+                return this.#saldo;
             }
-
-            // 3. O 'set' (O SEGURANÇA): Intercepta do sinal de "=" e valida o dado
+            // SETTER - inserir o set (PORTEIRO) - fiscalizar o preenchimento da informação que vai preencher #saldo
             set saldo(novoValor){
-                // Validação interna: Garantir que seja um número positivo
-                if(typeof novoValor === "number" && novoValor > 0){
+                if (typeof novoValor === "number" && novoValor > 0){
                     this.#saldo = novoValor;
-                    document.getElementById('feedback').innerHTML = ""; // limpa erros
-                    console.log(`Sucesso: Saldo alterado para ${novoValor}`);
-                } else{
-                    // Se dado for inválido, o código bloqueia a alteração
-                    document.getElementById('feedback').innerHTML = "Errro: Valor inválido detectado!";
-                    console.error("tentativa de alteração bloqueada pelo Encapsulamento.");
+                    document.getElementById('feedback').innerText=" ";
+                    console.log(`Sucesso: saldo alterado para R$ ${novoValor}`);
+                }
+                else{
+                    document.getElementById('feedback').innerText="Erro: valor inválido detectado";
+                    console.error("Tentativa de ação bloqueada pelo encapsulamento");
                 }
             }
-
         }
 
         // Criamos o objeto na memória
@@ -124,18 +119,17 @@
             // Pegamos o elemento da tela
             const elementoSaldo = document.getElementById('saldoTela');
 
-            // Aqui usamos o GETTER 'saldo' para ler o valor privado
+            // Atualizamos o texto da tela com o valor que estiver DENTRO do objeto
             elementoSaldo.innerText = "R$ " + contaJoao.saldo.toFixed(2);
 
-            console.log("DOM atualizado com o valor seguro do objeto!");
+            console.log("DOM atualizado! O valor no objeto agora é: " + contaJoao.saldo);
         }
 
         // Instruções iniciais no console
-        console.log("%c TESTE DO TRIO DE FERRO", "background: #222; color: #bada55; font-size: 14px;");
-        console.log("1. Tente burlar: contaJoao.saldo = -500");
-        console.log("2. Tente burlar: contaJoao.saldo = 'HACKEADO'");
-        console.log("3. Tente acesso direto: contaJoao.#saldo = 5000 (Dará erro de sintaxe)");
-        console.log("Clique em Sincronizar para ver a segurança em ação.");
+        console.log("--- TESTE DO TRIO DE FERRO ---","background: #222; color: #bada55; font-size: 14px ");
+        console.log("1. Tente burlar: contaJoao.saldo = '-500'");
+        console.log("2. Tente burlas: contaJoao.saldo = ' HACKEADO'.");
+        console.log("tente acesso direto: contaJoao.#saldo = 5000");
     </script>
 </body>
 

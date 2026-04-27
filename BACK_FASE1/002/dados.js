@@ -1,18 +1,19 @@
-//criar uma coleção
+// criar uma coleção
 
-let nomes = ["joão", "ana", "carlos"];
-let frutas = ["laranja", "banana", "abacaxi"];
+let nomes = ['João', 'Ana', 'Carlos'];
+let frutas = ['laranja', 'banana', 'abacaxi'];
 
-function soma(a, b) {
-  return a + b;
+function soma(a, b){
+    return a+b
 }
 
-//criar a exportação
-//module.exports = nomes;
-//module.exports = frutas;
+// criar exportação
 
-module.exports = {
-  nomes,
-  frutas,
-  soma,
-};
+// module.exports =nomes;
+// module.exports = frutas;
+
+module.exports={
+    nomes,
+    frutas,
+    soma
+}

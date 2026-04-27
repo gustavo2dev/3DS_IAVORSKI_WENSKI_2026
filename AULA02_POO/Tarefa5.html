@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarfa5</title>
+    <script>
+        class Cofre {
+            #saldo = 0;
+            #historico = [];
+
+            constructor(saldoInicial = 0) {
+                this.saldo = saldoInicial;
+            }
+
+            get saldo() {
+                return this.#saldo;
+            }
+
+            set saldo(valor) {
+                if (typeof valor !== "number" || isNaN(valor)) {
+                    console.error("O saldo deve ser um número válido.");
+                    return;
+                }
+
+                this.#saldo = valor;
+                this.#historico.push(`Saldo alterado para ${valor}`);
+            }
+
+            extrato() {
+                console.log("--- Extrato do Cofre ---");
+                this.#historico.forEach((msg, idx) => {
+                    console.log(`${idx + 1}: ${msg}`);
+                });
+            }
+        }
+
+        const cofre = new Cofre(500);
+        cofre.saldo = 750;
+        cofre.saldo = 1200;
+        cofre.saldo = "abc";
+
+        cofre.extrato();
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

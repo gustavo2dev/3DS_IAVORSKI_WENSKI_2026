@@ -1,15 +1,10 @@
-const express = require("express");
-server = express();
-var morgan = require("morgan");
-
+const express = require('express');
+const morgan = require('morgan');
+const server = express();
 server.listen(3000);
 
-//MORGAN É UMA BIBLIOTECA PARA MIDDLEWARE
+server.use(morgan('Método=:method | Status=:status | Url=:url'))
 
-server.use(morgan("Status = :status | Método = :method | Url = :url"));
-
-//
-
-server.get("/", (req, res) => {
-  res.send("Teste!!!!");
-});
+server.get('/', (req, res) => {
+    res.send('Teste');
+})

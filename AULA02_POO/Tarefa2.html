@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefa2</title>
+    <script>
+        class ControleDeEstoque {
+            #quantidade = 0;
+
+            constructor(quantidadeInicial = 0) {
+                // inicializa o estoque
+                this.#quantidade = quantidadeInicial;
+            }
+
+            get quantidade() {
+                return this.#quantidade;
+            }
+
+            set quantidade(valor) {
+                if (typeof valor === "number" && valor >= 0) {
+                    this.#quantidade = valor;
+                    console.log(`Sua loja possui ${valor} produtos.`);
+                } else {
+                    console.error("Valor inválido inserido.");
+                }
+            }
+        }
+
+        const estoque = new ControleDeEstoque(22);
+        estoque.quantidade = -5;   // Console: Valor inválido inserido.
+        estoque.quantidade = 30;   // Console: Sua loja possui 30 produtos.
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

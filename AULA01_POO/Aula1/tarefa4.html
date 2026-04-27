@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefa3</title>
+    <script>
+        class Carro {
+            constructor(cor, modelo, ano){
+                this.ano = ano;
+                this.modelo = modelo;
+                this.cor = cor;
+            }
+        }
+
+        const carros = [
+            new Carro("branco", "Gol", 2020),
+            new Carro("preto", "Civic", 2021),
+            new Carro("vermelho", "Ferrari", 2022)
+        ];
+
+        carros.forEach(carro => {
+            console.log(carro.modelo);
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

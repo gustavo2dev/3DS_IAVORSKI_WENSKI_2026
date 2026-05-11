@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Servidor Express Completo</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #333;
+      }
+      .container {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        padding: 40px;
+        max-width: 900px;
+        width: 90%;
+      }
+      h1 {
+        color: #667eea;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+      .subtitle {
+        text-align: center;
+        color: #666;
+        margin-bottom: 30px;
+        font-size: 14px;
+      }
+      .routes-section {
+        margin: 30px 0;
+      }
+      .routes-section h2 {
+        color: #764ba2;
+        font-size: 18px;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #667eea;
+        padding-bottom: 10px;
+      }
+      .route {
+        background: #f5f5f5;
+        padding: 12px;
+        margin: 8px 0;
+        border-left: 4px solid #667eea;
+        border-radius: 4px;
+        font-family: "Courier New", monospace;
+        font-size: 14px;
+      }
+      .route a {
+        color: #667eea;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      .route a:hover {
+        color: #764ba2;
+        text-decoration: underline;
+      }
+      nav {
+        text-align: center;
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 2px solid #eee;
+      }
+      nav a {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 5px;
+        background: #667eea;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s;
+      }
+      nav a:hover {
+        background: #764ba2;
+      }
+      .info-box {
+        background: #e8f4f8;
+        border-left: 4px solid #17a2b8;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🚀 Servidor Express Completo</h1>
+      <p class="subtitle">
+        Integração de todos os recursos EXPRESS_0 até EXPRESS_10
+      </p>
+
+      <div class="info-box">
+        <strong>ℹ️ Sobre:</strong> Este servidor integra todas as
+        funcionalidades dos 11 projetos Express, incluindo rotas dinâmicas,
+        banco de dados SQLite, middlewares, logging com Morgan e funções
+        modularizadas.
+      </div>
+
+      <div class="routes-section">
+        <h2>📍 Rotas Básicas</h2>
+        <div class="route"><a href="/">GET /</a> - Página inicial</div>
+        <div class="route">
+          <a href="/sobre">GET /sobre</a> - Informações sobre
+        </div>
+        <div class="route">
+          <a href="/info">GET /info</a> - Informações do servidor
+        </div>
+        <div class="route">
+          <a href="/servicos">GET /servicos</a> - Página de serviços
+        </div>
+      </div>
+
+      <div class="routes-section">
+        <h2>👥 Rotas de Clientes (EXPRESS_07)</h2>
+        <div class="route">
+          <a href="/clientes">GET /clientes</a> - Lista todos os clientes
+        </div>
+        <div class="route">
+          <a href="/total_clientes">GET /total_clientes</a> - Total de clientes
+        </div>
+        <div class="route">
+          <a href="/clientes/1">GET /clientes/:id</a> - Exemplo: /clientes/1
+        </div>
+      </div>
+
+      <div class="routes-section">
+        <h2>🔢 Rotas com Parâmetros (EXPRESS_06, EXPRESS_08)</h2>
+        <div class="route">
+          <a href="/ola/João">GET /ola/:nome</a> - Exemplo: /ola/João
+        </div>
+        <div class="route">
+          <a href="/ola/João/TechCorp">GET /ola/:nome/:empresa</a> - Exemplo:
+          /ola/João/TechCorp
+        </div>
+        <div class="route">
+          <a href="/soma/10/20">GET /soma/:a/:b</a> - Exemplo: /soma/10/20
+        </div>
+        <div class="route">
+          <a href="/produto/5/3">GET /produto/:pA/:pB</a> - Exemplo:
+          /produto/5/3
+        </div>
+        <div class="route">
+          <a href="/distancia/10-50">GET /distancia/:pontoA-:pontoB</a> -
+          Exemplo: /distancia/10-50
+        </div>
+        <div class="route">
+          <a href="/distancia/10.50">GET /distancia/:pontoA.:pontoB</a> -
+          Exemplo: /distancia/10.50
+        </div>
+      </div>
+
+      <div class="routes-section">
+        <h2>🧮 Rotas com Funções Modularizadas (EXPRESS_09)</h2>
+        <div class="route">
+          <a href="/add/10/5">GET /add/:a/:b</a> - Exemplo: /add/10/5
+        </div>
+        <div class="route">
+          <a href="/sub/10/3">GET /sub/:a/:b</a> - Exemplo: /sub/10/3
+        </div>
+      </div>
+
+      <div class="routes-section">
+        <h2>💾 Rotas do Banco de Dados (EXPRESS_10)</h2>
+        <div class="route">
+          <a href="/tasks">GET /tasks</a> - Listar todas as tarefas
+        </div>
+        <div class="route">
+          <a href="/tasks/add/Nova%20Tarefa/pendente"
+            >GET /tasks/add/:task/:status</a
+          >
+          - Adicionar tarefa
+        </div>
+        <div class="route">
+          <a href="/setup">GET /setup</a> - Configurar banco com dados padrão
+        </div>
+        <div class="route">
+          <a href="/setup/iavorski">GET /setup/iavorski</a> - Configurar com
+          dados customizados
+        </div>
+      </div>
+
+      <nav>
+        <a href="/servicos">Serviços</a>
+        <a href="/sobre">Sobre</a>
+        <a href="/info">Info</a>
+        <a href="/clientes">Clientes</a>
+        <a href="/tasks">Tarefas</a>
+      </nav>
+    </div>
+  </body>
+</html>

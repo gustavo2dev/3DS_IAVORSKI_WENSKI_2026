@@ -35,59 +35,77 @@ app.get("/", (req, res) => {
 });
 
 app.get("/insere-poucos", (req, res) => {
-  //rota para inserção de dados na tabela
   const query = "INSERT INTO tasks (task, status) VALUES (?,?)";
-  connection.run(query, ["Estudar rotas do Express", "concluído"]);
-  connection.run(query, ["Configurar banco SQLite", "em andamento"]);
-  connection.run(query, ["Testar a extensão SQLite Viewer", "pendente"]);
-  connection.run(query, ["Estudar para prova", "concluído"]);
-  connection.run(
-    query,
-    ["Estudar para recuperação", "pendente"],
-
-    (err) => {
-      if (err) {
-        res.send("Erro ao popular dados");
-      } else {
-        res.send(
-          "<h1>Ambiente configurado com sucesso</h1><p>Vá para a rota principal para ver os dados</p>",
-        );
-      }
-    },
-  );
+  connection.run(query, ["Capinar um lote", "pendente"]);
+  connection.run(query, ["Configurar banco de dados MYSQL", "em andamento"]);
+  connection.run(query, ["Estudar para prova de matemática", "concluído"]);
+  connection.run(query, ["Fazer texto de inglês", "em andamento"]);
+  connection.run(query, ["Testar fonte de bancada nova", "pendente"], (err) => {
+    if (err) {
+      res.send("Erro ao inserir dados");
+    } else {
+      res.send(
+        "<h1>Populado com sucesso!</h1><p>Vá para a rota principal para ver os dados</p>",
+      );
+    }
+  });
 });
 
 app.get("/insere-muitos", (req, res) => {
-  // Dados que vão ser adicionados
-  const novasTarefas = [
-    ["Ler documentação do SQLite", "concluído"],
-    ["Praticar Middlewares no Express", "em andamento"],
-    ["Configurar variáveis de ambiente", "pendente"],
-    ["Criar projeto de To-Do List", "em andamento"],
-    ["Revisar sintaxe de Callbacks", "concluído"],
-    ["Instalar Insomnia ou Postman", "concluído"],
+  const query = "INSERT INTO tasks (task, status) VALUES (?, ?)";
+
+  const tarefas = [
+    "Estudar Node.js",
+    "Fazer atividade de matemática",
+    "Treinar C++",
+    "Arrumar computador",
+    "Configurar servidor",
+    "Criar API REST",
+    "Estudar SQLite",
+    "Fazer exercícios",
+    "Testar fonte de bancada",
+    "Montar robô Arduino",
+    "Fazer backup do sistema",
+    "Atualizar drivers do PC",
+    "Criar tela de login",
+    "Corrigir bugs da aplicação",
+    "Estudar Express",
+    "Configurar roteador",
+    "Formatar notebook",
+    "Trocar pasta térmica do processador",
+    "Criar banco de dados",
+    "Adicionar autenticação JWT",
+    "Fazer deploy do site",
+    "Aprender Git e GitHub",
+    "Criar dashboard administrativo",
+    "Testar API com Postman",
+    "Criar sistema de cadastro",
+    "Montar relatório escolar",
+    "Estudar lógica de programação",
+    "Treinar SQL",
+    "Implementar CRUD completo",
+    "Criar tela responsiva",
+    "Melhorar desempenho do sistema",
+    "Documentar código",
+    "Criar sistema de estoque",
+    "Adicionar upload de imagens",
+    "Testar conexão com banco",
+    "Criar sistema de pedidos",
+    "Configurar ambiente Linux",
+    "Estudar programação orientada a objetos",
   ];
 
-  const query = "INSERT INTO tasks (task, status) VALUES (?,?)";
+  const status = ["pendente", "em andamento", "concluído"];
 
-  // leitura do array
-  connection.serialize(() => {
-    // leitura linha por linha
-    novasTarefas.forEach((tarefa, index) => {
-      // resposta quando chegar no ultimo item do array
-      if (index === novasTarefas.length - 1) {
-        connection.run(query, tarefa, (err) => {
-          if (err) {
-            res.send("Erro ao popular muitos dados");
-          } else {
-            res.send(
-              `<h1>Sucesso!</h1><p>${novasTarefas.length} novas tarefas foram inseridas.</p>`,
-            );
-          }
-        });
-      } else {
-        connection.run(query, tarefa);
-      }
-    });
-  });
+  for (let i = 1; i <= 100; i++) {
+    const tarefaAleatoria = tarefas[Math.floor(Math.random() * tarefas.length)];
+
+    const statusAleatorio = status[Math.floor(Math.random() * status.length)];
+
+    const nomeFinal = `${tarefaAleatoria} ${i}`;
+
+    connection.run(query, [nomeFinal, statusAleatorio]);
+  }
+
+  res.send("<h1>100 tarefas criadas com sucesso chefe!</h1>");
 });

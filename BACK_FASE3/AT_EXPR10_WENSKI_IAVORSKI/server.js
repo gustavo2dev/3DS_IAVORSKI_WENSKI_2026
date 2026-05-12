@@ -91,17 +91,3 @@ app.get("/insere-muitos", (req, res) => {
     });
   });
 });
-
-app.get("/graph", (req, res) => {
-  connection.all(
-    "SELECT status, COUNT(*) as count FROM tasks GROUP BY status",
-    (err, rows) => {
-      if (err) {
-        res.send("Erro ao obter dados do gráfico");
-        console.error("ERRO NO BANCO !!!!!! \n", err.message);
-      } else {
-        res.send(rows);
-      }
-    },
-  );
-});
